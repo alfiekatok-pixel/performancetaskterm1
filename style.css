@@ -1,0 +1,335 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Hide standard radio inputs */
+input[name="tab-control"] {
+    display: none;
+}
+
+/* Header & Navigation Design */
+header {
+    background: linear-gradient(135deg, #1b4d3e, #2e8b57);
+    color: #fff;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media(min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.tab:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Main Container Layout */
+.main-content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    min-height: 70vh;
+}
+
+/* Content Sections Hide/Show Logic via Pure CSS */
+.content-section {
+    display: none;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Active Tab Styles Binding */
+#tab1:checked ~ main #content-tab1,
+#tab2:checked ~ main #content-tab2,
+#tab3:checked ~ main #content-tab3 {
+    display: block;
+}
+
+#tab1:checked ~ header .nav-tabs #label-tab1,
+#tab2:checked ~ header .nav-tabs #label-tab2,
+#tab3:checked ~ header .nav-tabs #label-tab3 {
+    background-color: #ffffff;
+    color: #1b4d3e;
+}
+
+/* TAB 1: Welcoming Styles */
+.hero {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #1b4d3e;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #2e8b57;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #2e8b57;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1b4d3e;
+    transform: translateY(-2px);
+}
+
+.welcome-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+@media(min-width: 768px) {
+    .welcome-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card {
+    background: #f9fbf9;
+    border-left: 5px solid #2e8b57;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.card h3 {
+    color: #1b4d3e;
+    margin-bottom: 0.5rem;
+}
+
+/* TAB 2: Topics & Scrollable Area Styles */
+.scrollable-tab {
+    max-height: 75vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.topic-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.topic-header h2 {
+    color: #1b4d3e;
+    margin-bottom: 0.5rem;
+}
+
+.topics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.topic-box {
+    background: #fcfdfc;
+    border: 1px solid #e1e8e4;
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.topic-box h3 {
+    color: #2e8b57;
+    margin-bottom: 0.75rem;
+}
+
+.topic-box p {
+    color: #444;
+}
+
+.media-box {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.media-box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-height: 350px;
+    object-fit: cover;
+}
+
+/* Video Section Layout */
+.video-section-container {
+    margin-top: 3rem;
+    border-top: 2px dashed #2e8b57;
+    padding-top: 2rem;
+}
+
+.video-section-container h3 {
+    color: #1b4d3e;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.video-item {
+    margin-bottom: 2rem;
+    background: #f4f7f6;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.video-title {
+    font-weight: 600;
+    color: #2e8b57;
+    margin-bottom: 0.5rem;
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 4px;
+}
+
+/* TAB 3: About Team Styles */
+.team-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.team-header h2 {
+    color: #1b4d3e;
+    margin-bottom: 0.5rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media(min-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.team-card {
+    background: #fcfdfc;
+    border: 1px solid #e1e8e4;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #2e8b57;
+}
+
+.team-card h3 {
+    color: #1b4d3e;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.role {
+    font-size: 0.85rem;
+    color: #2e8b57;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.contribution {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Footer Design */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #1b4d3e;
+    color: white;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
